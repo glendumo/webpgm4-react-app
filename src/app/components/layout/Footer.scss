@@ -1,0 +1,50 @@
+@import "../../_sass/app";
+
+.app-footer {
+    background-color: $background-purple;
+    padding: 30px 0 0;
+    & h2 {
+        color: $color-whiteblue;
+    }
+    & .nav {
+        & .nav-item {
+            font-size: 1rem;
+            & .nav-link {
+                padding: 10px 0;
+                color: $color-whiteblue;
+                transition: all 0.3s ease-in-out;
+                &:hover {
+                    color: $color-whiteblue-state;
+                }
+            }
+        }
+    }
+    & .contact {
+        &-item {
+            font-size: 1rem;
+        }
+        &-link {
+            display: block;
+            margin: 5px 0;
+            color: $color-whiteblue;
+            transition: all 0.3s ease-in-out;
+            & span {
+                padding-left: 10px;
+            }
+            &:hover {
+                color: $color-whiteblue-state;
+                text-decoration: none;
+            }
+        }
+    }
+    & .legal {
+        text-align: center;
+        background-color: $color-blackish;
+        color: $color-whiteblue;
+        padding: 5px 0;
+        margin-top: 30px;
+        & span {
+            padding: 0 20px;
+        }
+    }
+}

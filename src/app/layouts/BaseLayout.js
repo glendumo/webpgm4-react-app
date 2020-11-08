@@ -1,12 +1,12 @@
 import React, { Fragment } from "react";
 
-// import { Header, Footer } from "../components/layout";
+import { Header, Footer } from "../components/layout";
 
 const BaseLayout = ({ children }) => (
     <Fragment>
-        {/* <Header /> */}
+        <Header />
         <main className="app-main">{children}</main>
-        {/* <Footer /> */}
+        <Footer />
     </Fragment>
 );
 export default BaseLayout;

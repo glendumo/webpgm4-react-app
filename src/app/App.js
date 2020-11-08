@@ -4,7 +4,17 @@ import { BrowserRouter as Router, Redirect, Switch } from "react-router-dom";
 import { RouteWithLayout } from "./utilities";
 
 import { BaseLayout } from "./layouts";
-import { HomePage, GamesPage } from "./pages";
+import {
+    HomePage,
+    GamesPage,
+    GameDetailPage,
+    ContactPage,
+    CartPage,
+    CheckoutPage,
+    RegisterPage,
+    LoginPage,
+    LogoutPage,
+} from "./pages";
 
 import * as Routes from "./routes";
 
@@ -27,6 +37,48 @@ function App() {
                         path={Routes.GAMES}
                         layout={BaseLayout}
                         component={GamesPage}
+                    />
+                    <RouteWithLayout
+                        exact
+                        path={Routes.GAME_DETAIL}
+                        layout={BaseLayout}
+                        component={GameDetailPage}
+                    />
+                    <RouteWithLayout
+                        exact
+                        path={Routes.CONTACT}
+                        layout={BaseLayout}
+                        component={ContactPage}
+                    />
+                    <RouteWithLayout
+                        exact
+                        path={Routes.CART}
+                        layout={BaseLayout}
+                        component={CartPage}
+                    />
+                    <RouteWithLayout
+                        exact
+                        path={Routes.CHECKOUT}
+                        layout={BaseLayout}
+                        component={CheckoutPage}
+                    />
+                    <RouteWithLayout
+                        exact
+                        path={Routes.REGISTER}
+                        layout={BaseLayout}
+                        component={RegisterPage}
+                    />
+                    <RouteWithLayout
+                        exact
+                        path={Routes.LOGIN}
+                        layout={BaseLayout}
+                        component={LoginPage}
+                    />
+                    <RouteWithLayout
+                        exact
+                        path={Routes.LOGOUT}
+                        layout={BaseLayout}
+                        component={LogoutPage}
                     />
                 </Switch>
             </Router>

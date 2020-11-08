@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: $color-blackish;
+}
+
+h1 {
+    font-size: 2.3rem;
+}
+h2 {
+    font-size: 2rem;
+}
+h3 {
+    font-size: 1.7rem;
+}
+h4 {
+    font-size: 1.4rem;
+}
+
+p,
+a,
+li {
+    font-size: 1rem;
+}
+
+.app-main {
+    margin: 75px 0;
+}

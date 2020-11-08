@@ -1,3 +1,10 @@
 export const LANDING = "/";
 export const HOME = "/home";
 export const GAMES = "/games";
+export const GAME_DETAIL = "/games/:id";
+export const CONTACT = "/contact";
+export const CART = "/cart";
+export const CHECKOUT = "/checkout";
+export const REGISTER = "/register";
+export const LOGIN = "/login";
+export const LOGOUT = "/logout";
