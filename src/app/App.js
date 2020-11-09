@@ -8,7 +8,6 @@ import {
     HomePage,
     GamesPage,
     GameDetailPage,
-    ContactPage,
     CartPage,
     CheckoutPage,
     RegisterPage,
@@ -43,12 +42,6 @@ function App() {
                         path={Routes.GAME_DETAIL}
                         layout={BaseLayout}
                         component={GameDetailPage}
-                    />
-                    <RouteWithLayout
-                        exact
-                        path={Routes.CONTACT}
-                        layout={BaseLayout}
-                        component={ContactPage}
                     />
                     <RouteWithLayout
                         exact
