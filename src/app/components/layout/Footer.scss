@@ -1,4 +1,4 @@
-@import "../../_sass/app";
+@import "../../_sass/app.scss";
 
 .app-footer {
     background-color: $background-purple;
@@ -8,9 +8,9 @@
     }
     & .nav {
         & .nav-item {
-            font-size: 1rem;
             & .nav-link {
-                padding: 10px 0;
+                font-size: 1.2rem;
+                padding: 0 0 15px;
                 color: $color-whiteblue;
                 transition: all 0.3s ease-in-out;
                 &:hover {

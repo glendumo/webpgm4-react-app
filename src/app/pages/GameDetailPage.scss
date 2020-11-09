@@ -1,0 +1,101 @@
+@import "../_sass/app.scss";
+
+.bg- {
+    &PlayStation {
+        background-image: linear-gradient(
+            to right bottom,
+            #00f,
+            #fff,
+            #fff,
+            #fff,
+            #fff,
+            #fff,
+            #00f
+        );
+        opacity: 0.8;
+    }
+    &Xbox {
+        background-image: linear-gradient(
+            to right bottom,
+            #0f0,
+            #fff,
+            #fff,
+            #fff,
+            #fff,
+            #fff,
+            #0f0
+        );
+        opacity: 0.8;
+    }
+    &PC {
+        background-image: linear-gradient(
+            to right bottom,
+            #f00,
+            #fff,
+            #fff,
+            #fff,
+            #fff,
+            #fff,
+            #f00
+        );
+        opacity: 0.8;
+    }
+}
+
+.page--game-detail {
+    position: relative;
+    & .back-btn {
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        color: $color-blackish;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+            color: $color-blackish-state;
+        }
+    }
+    & .detail {
+        &-images {
+            & img {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+        }
+        &-content {
+            & h1 {
+                margin: 0;
+            }
+            & .price {
+                font-size: 1.5rem;
+                color: $color-whiteblue;
+                margin-bottom: 20px;
+            }
+            & .add-to-cart-btn {
+                background-color: $color-blackish;
+                color: $color-whiteblue;
+                transition: all 0.3s ease-in-out;
+                &:hover {
+                    background-color: $color-blackish-state;
+                    color: $color-whiteblue-state;
+                }
+            }
+            & .categories-list {
+                display: flex;
+                flex-wrap: wrap;
+                margin: 10px 0;
+                & h3 {
+                    width: 100%;
+                }
+                &-item {
+                    list-style: none;
+                    padding: 5px 10px;
+                    border: 2px solid $color-whiteblue;
+                    border-radius: 15px;
+                    margin-right: 5px;
+                    margin-bottom: 5px;
+                }
+            }
+        }
+    }
+}
