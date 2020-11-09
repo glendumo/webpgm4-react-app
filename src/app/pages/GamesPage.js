@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { gql, useQuery } from "@apollo/client";
 
 import * as Routes from "../routes";
