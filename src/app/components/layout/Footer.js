@@ -25,11 +25,6 @@ const Footer = ({ children }) => {
                                     Our Games
                                 </Link>
                             </li>
-                            <li className="nav-item">
-                                <Link to={Routes.CONTACT} className="nav-link">
-                                    Contact
-                                </Link>
-                            </li>
                         </ul>
                     </div>
                     <div className="col-12 col-md-6">

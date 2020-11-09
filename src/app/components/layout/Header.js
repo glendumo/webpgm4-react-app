@@ -48,15 +48,6 @@ const Header = ({ children }) => {
                         </li>
                         <li className="nav-item">
                             <NavLink
-                                to={Routes.CONTACT}
-                                className="nav-link"
-                                activeClassName="active"
-                            >
-                                Contact
-                            </NavLink>
-                        </li>
-                        <li className="nav-item">
-                            <NavLink
                                 to={Routes.LOGIN}
                                 className="nav-link"
                                 activeClassName="active"
