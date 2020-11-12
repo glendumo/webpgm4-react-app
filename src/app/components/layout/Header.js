@@ -8,6 +8,8 @@ import * as Routes from "../../routes";
 import "./Header.scss";
 
 const Header = ({ children }) => {
+    const user = JSON.parse(window.localStorage.getItem("user"));
+
     return (
         <header className="app-header">
             <nav className="navbar navbar-expand-md navigation">
@@ -46,15 +48,34 @@ const Header = ({ children }) => {
                                 Our Games
                             </NavLink>
                         </li>
-                        <li className="nav-item">
-                            <NavLink
-                                to={Routes.LOGIN}
-                                className="nav-link"
-                                activeClassName="active"
-                            >
-                                Login
-                            </NavLink>
-                        </li>
+                        {user ? (
+                            <li className="nav-item">
+                                <NavLink
+                                    to={Routes.LOGOUT}
+                                    className="nav-link"
+                                >
+                                    Logout
+                                </NavLink>
+                            </li>
+                        ) : (
+                            <li className="nav-item d-flex align-items-center">
+                                <NavLink
+                                    to={Routes.LOGIN}
+                                    className="nav-link"
+                                    activeClassName="active"
+                                >
+                                    Login
+                                </NavLink>
+                                <span>or</span>
+                                <NavLink
+                                    to={Routes.REGISTER}
+                                    className="nav-link"
+                                    activeClassName="active"
+                                >
+                                    Register
+                                </NavLink>
+                            </li>
+                        )}
                         <li className="nav-item">
                             <NavLink
                                 to={Routes.CART}

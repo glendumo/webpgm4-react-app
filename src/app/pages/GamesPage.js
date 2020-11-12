@@ -29,24 +29,32 @@ const GamesPage = ({ children }) => {
             <div className="container">
                 <div className="products-list row">
                     {data.products.map((product) => (
-                        <Link
-                            to={Routes.GAME_DETAIL.replace(":id", product.id)}
+                        <div
                             className="col-6 col-md-4 col-lg-3"
                             key={product.id}
                         >
-                            <div className="products-list-item">
-                                <img
-                                    src={product.images[0]}
-                                    alt={product.title}
-                                />
-                                <div className="overlay"></div>
-                                <p className="title">{product.title}</p>
-                                <span className="platform">
-                                    {product.platform}
-                                </span>
-                                <span className="price">{product.price}</span>
-                            </div>
-                        </Link>
+                            <Link
+                                to={Routes.GAME_DETAIL.replace(
+                                    ":id",
+                                    product.id
+                                )}
+                            >
+                                <div className="products-list-item">
+                                    <img
+                                        src={product.images[0]}
+                                        alt={product.title}
+                                    />
+                                    <div className="overlay"></div>
+                                    <p className="title">{product.title}</p>
+                                    <span className="platform">
+                                        {product.platform}
+                                    </span>
+                                    <span className="price">
+                                        {product.price}
+                                    </span>
+                                </div>
+                            </Link>
+                        </div>
                     ))}
                 </div>
             </div>

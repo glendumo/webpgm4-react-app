@@ -1,0 +1,44 @@
+@import "../_sass/app.scss";
+
+.page-- {
+    &register,
+    &login {
+        & h1 {
+            margin-bottom: 30px;
+        }
+        & form {
+            & .form-item {
+                margin-bottom: 30px;
+            }
+            & input {
+                padding: 5px 10px;
+                border: 2px solid $color-whiteblue;
+                border-radius: 10px;
+            }
+            & button {
+                padding: 5px 10px;
+                border: 2px solid $color-blackish;
+                border-radius: 10px;
+                transition: all 0.3s ease-in-out;
+                &:hover {
+                    background-color: $background-purple;
+                    color: $color-whiteblue;
+                }
+            }
+            & p {
+                & a {
+                    color: $color-blackish;
+                    transition: all 0.3s ease-in-out;
+                    &:hover {
+                        color: $color-whiteblue;
+                        text-decoration: none;
+                    }
+                }
+            }
+            & .error {
+                color: $danger;
+                font-size: 1.1rem;
+            }
+        }
+    }
+}

@@ -1,11 +1,12 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
+
+import * as Routes from "../routes";
 
 const LogoutPage = ({ children }) => {
-    return (
-        <div className="page page--logout">
-            <h1>Logout</h1>
-        </div>
-    );
+    window.localStorage.removeItem("user");
+
+    return <Redirect to={Routes.HOME} />;
 };
 
 export default LogoutPage;

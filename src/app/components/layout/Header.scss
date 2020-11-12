@@ -31,6 +31,12 @@
                         text-decoration: underline;
                     }
                 }
+                & span {
+                    color: $color-whiteblue;
+                    @media (max-width: 767px) {
+                        margin: 0 10px;
+                    }
+                }
             }
         }
     }
