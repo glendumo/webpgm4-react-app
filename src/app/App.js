@@ -13,6 +13,7 @@ import {
     RegisterPage,
     LoginPage,
     LogoutPage,
+    AdminPage,
 } from "./pages";
 
 import * as Routes from "./routes";
@@ -72,6 +73,12 @@ function App() {
                         path={Routes.LOGOUT}
                         layout={BaseLayout}
                         component={LogoutPage}
+                    />
+                    <RouteWithLayout
+                        exact
+                        path={Routes.ADMIN}
+                        layout={BaseLayout}
+                        component={AdminPage}
                     />
                 </Switch>
             </Router>

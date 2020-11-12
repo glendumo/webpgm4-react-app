@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import { gql, useQuery } from "@apollo/client";
 
 import * as Icon from "react-feather";
 
@@ -8,7 +9,24 @@ import * as Routes from "../../routes";
 import "./Header.scss";
 
 const Header = ({ children }) => {
+    const GET_USER = gql`
+        query User($id: ID!) {
+            user(id: $id) {
+                id
+                isAdmin
+            }
+        }
+    `;
+
     const user = JSON.parse(window.localStorage.getItem("user"));
+    let userId = "";
+    if (user) {
+        userId = user.userId;
+    }
+
+    const { data } = useQuery(GET_USER, {
+        variables: { id: userId },
+    });
 
     return (
         <header className="app-header">
@@ -34,6 +52,19 @@ const Header = ({ children }) => {
                     id="navbarSupportedContent"
                 >
                     <ul className="navbar-nav mr-auto justify-content-end flex-grow-1">
+                        {data && data.user.isAdmin ? (
+                            <li className="nav-item">
+                                <NavLink
+                                    to={Routes.ADMIN}
+                                    className="nav-link"
+                                    activeClassName="active"
+                                >
+                                    Admin
+                                </NavLink>
+                            </li>
+                        ) : (
+                            ""
+                        )}
                         <li className="nav-item ">
                             <NavLink to={Routes.HOME} className="nav-link">
                                 <Icon.Home />

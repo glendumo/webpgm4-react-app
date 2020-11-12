@@ -25,7 +25,11 @@ const httpLink = new HttpLink({
 // create the authentication header
 const authLink = new ApolloLink((operation, forward) => {
     // get the authentication token from local storage if it exists
-    const token = "";
+    const userData = JSON.parse(window.localStorage.getItem("user"));
+    let token = "";
+    if (userData) {
+        token = userData.token;
+    }
 
     // Use the setContext method to set the HTTP headers.
     operation.setContext({
