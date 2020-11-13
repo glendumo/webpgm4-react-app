@@ -71,13 +71,26 @@
                 color: $color-whiteblue;
                 margin-bottom: 20px;
             }
-            & .add-to-cart-btn {
-                background-color: $color-blackish;
-                color: $color-whiteblue;
-                transition: all 0.3s ease-in-out;
-                &:hover {
-                    background-color: $color-blackish-state;
-                    color: $color-whiteblue-state;
+            & form {
+                & input {
+                    margin-right: 20px;
+                    padding: 5px 10px;
+                    border: 2px solid $color-whiteblue;
+                    border-radius: 10px;
+                }
+                & .add-to-cart {
+                    &-btn {
+                        background-color: $color-blackish;
+                        color: $color-whiteblue;
+                        transition: all 0.3s ease-in-out;
+                        &:hover {
+                            background-color: $color-blackish-state;
+                            color: $color-whiteblue-state;
+                        }
+                    }
+                    &-error {
+                        color: $danger;
+                    }
                 }
             }
             & .categories-list {

@@ -30,55 +30,60 @@ const RegisterPage = ({ children }) => {
 
     if (redirect) {
         return <Redirect to={Routes.LOGIN} />;
-    }
-
-    return (
-        <div className="page page--register">
-            <div className="container">
-                <h1>Register</h1>
-                <form
-                    onSubmit={async (e) => {
-                        e.preventDefault();
-                        try {
-                            await register({
-                                variables: { email: email, password: password },
-                            });
-                        } catch (error) {
-                            setRegisterError(error.message);
-                        }
-                    }}
-                >
-                    <div className="form-item">
-                        <label>Email</label>
-                        <br />
-                        <input
-                            type="text"
-                            required
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                    </div>
-                    <div className="form-item">
-                        <label>Password</label>
-                        <br />
-                        <input
-                            type="password"
-                            required
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-                    </div>
-                    <button type="submit">Register</button>
-                    {registerError ? (
-                        <p className="error">{registerError}</p>
-                    ) : (
-                        ""
-                    )}
-                    <p>
-                        <Link to={Routes.LOGIN}>Already have an account?</Link>
-                    </p>
-                </form>
+    } else {
+        return (
+            <div className="page page--register">
+                <div className="container">
+                    <h1>Register</h1>
+                    <form
+                        onSubmit={async (e) => {
+                            e.preventDefault();
+                            try {
+                                await register({
+                                    variables: {
+                                        email: email,
+                                        password: password,
+                                    },
+                                });
+                            } catch (error) {
+                                setRegisterError(error.message);
+                            }
+                        }}
+                    >
+                        <div className="form-item">
+                            <label>Email</label>
+                            <br />
+                            <input
+                                type="email"
+                                required
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                        </div>
+                        <div className="form-item">
+                            <label>Password</label>
+                            <br />
+                            <input
+                                type="password"
+                                required
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                        </div>
+                        <button type="submit">Register</button>
+                        {registerError ? (
+                            <p className="error">{registerError}</p>
+                        ) : (
+                            ""
+                        )}
+                        <p>
+                            <Link to={Routes.LOGIN}>
+                                Already have an account?
+                            </Link>
+                        </p>
+                    </form>
+                </div>
             </div>
-        </div>
-    );
+        );
+    }
 };
 
 export default RegisterPage;

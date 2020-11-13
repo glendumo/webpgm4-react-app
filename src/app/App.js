@@ -9,7 +9,6 @@ import {
     GamesPage,
     GameDetailPage,
     CartPage,
-    CheckoutPage,
     RegisterPage,
     LoginPage,
     LogoutPage,
@@ -49,12 +48,6 @@ function App() {
                         path={Routes.CART}
                         layout={BaseLayout}
                         component={CartPage}
-                    />
-                    <RouteWithLayout
-                        exact
-                        path={Routes.CHECKOUT}
-                        layout={BaseLayout}
-                        component={CheckoutPage}
                     />
                     <RouteWithLayout
                         exact

@@ -29,10 +29,12 @@ const LoginPage = ({ children }) => {
                 userId: data.login.userId,
                 token: data.login.token,
             };
+
+            window.localStorage.setItem("user", JSON.stringify(userData));
+
             if (userData.userId) {
                 setRedirect(!redirect);
             }
-            window.localStorage.setItem("user", JSON.stringify(userData));
         }
         if (error) {
             setLoginError(error.message);
@@ -41,49 +43,53 @@ const LoginPage = ({ children }) => {
 
     if (redirect) {
         return <Redirect to={Routes.HOME} />;
-    }
-
-    return (
-        <div className="page page--login">
-            <div className="container">
-                <h1>Login</h1>
-                <form
-                    onSubmit={(e) => {
-                        e.preventDefault();
-                        login({
-                            variables: { email: email, password: password },
-                        });
-                    }}
-                >
-                    <div className="form-item">
-                        <label>Email</label>
-                        <br />
-                        <input
-                            type="text"
-                            required
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                    </div>
-                    <div className="form-item">
-                        <label>Password</label>
-                        <br />
-                        <input
-                            type="password"
-                            required
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-                    </div>
-                    <button type="submit">Login</button>
-                    {loginError ? <p className="error">{loginError}</p> : ""}
-                    <p>
-                        <Link to={Routes.REGISTER}>
-                            Don't have an account yet?
-                        </Link>
-                    </p>
-                </form>
+    } else {
+        return (
+            <div className="page page--login">
+                <div className="container">
+                    <h1>Login</h1>
+                    <form
+                        onSubmit={(e) => {
+                            e.preventDefault();
+                            login({
+                                variables: { email: email, password: password },
+                            });
+                        }}
+                    >
+                        <div className="form-item">
+                            <label>Email</label>
+                            <br />
+                            <input
+                                type="email"
+                                required
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                        </div>
+                        <div className="form-item">
+                            <label>Password</label>
+                            <br />
+                            <input
+                                type="password"
+                                required
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                        </div>
+                        <button type="submit">Login</button>
+                        {loginError ? (
+                            <p className="error">{loginError}</p>
+                        ) : (
+                            ""
+                        )}
+                        <p>
+                            <Link to={Routes.REGISTER}>
+                                Don't have an account yet?
+                            </Link>
+                        </p>
+                    </form>
+                </div>
             </div>
-        </div>
-    );
+        );
+    }
 };
 
 export default LoginPage;

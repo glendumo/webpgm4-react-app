@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { gql, useQuery } from "@apollo/client";
 
@@ -10,6 +10,9 @@ import "./GameDetailPage.scss";
 
 const GameDetailPage = ({ children }) => {
     const { id } = useParams();
+
+    const [amount, setAmount] = useState(1);
+    const [addToCartError, setAddToCartError] = useState("");
 
     const GET_PRODUCT_DETAIL = gql`
         query Product($id: ID!) {
@@ -55,12 +58,63 @@ const GameDetailPage = ({ children }) => {
                             </h1>
                             <p className="price">€ {data.product.price}</p>
                             <p>{data.product.description}</p>
-                            <button
-                                type="submit"
-                                className="btn add-to-cart-btn"
+                            <form
+                                onSubmit={(e) => {
+                                    e.preventDefault();
+
+                                    let cartItem = {
+                                        productId: id,
+                                        title: data.product.title,
+                                        price: data.product.price,
+                                        platform: data.product.platform,
+                                        image: data.product.images[0],
+                                        amount: amount,
+                                    };
+
+                                    let cart = JSON.parse(
+                                        window.localStorage.getItem("cart")
+                                    );
+                                    if (!cart) {
+                                        cart = [];
+                                    }
+
+                                    const inCart = cart.find((item) => {
+                                        return item.productId === id;
+                                    });
+
+                                    if (!inCart) {
+                                        cart.push(cartItem);
+
+                                        window.localStorage.setItem(
+                                            "cart",
+                                            JSON.stringify(cart)
+                                        );
+                                    } else {
+                                        setAddToCartError(
+                                            "This item is already in your cart"
+                                        );
+                                    }
+                                }}
                             >
-                                <Icon.ShoppingCart /> Add to cart
-                            </button>
+                                <input
+                                    type="number"
+                                    value={amount}
+                                    min="1"
+                                    max="25"
+                                    onChange={(e) => {
+                                        setAmount(e.target.value);
+                                    }}
+                                />
+                                <button
+                                    type="submit"
+                                    className="btn add-to-cart-btn"
+                                >
+                                    <Icon.ShoppingCart /> Add to cart
+                                </button>
+                                <span className="add-to-cart-error">
+                                    {addToCartError}
+                                </span>
+                            </form>
                             <ul className="categories-list">
                                 <h3>categories</h3>
                                 {data.product.categories.map((category) => (

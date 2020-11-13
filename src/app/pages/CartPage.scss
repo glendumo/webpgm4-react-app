@@ -1,0 +1,50 @@
+@import "../_sass/app.scss";
+
+.page--cart {
+    & .cart-list {
+        margin: 30px 0;
+        &-item {
+            border: 2px solid $color-blackish;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            & .image {
+                border-radius: 20px 0 0 20px;
+            }
+            & .content {
+                padding: 10px 0;
+                & .info {
+                    & b {
+                        color: $color-whiteblue;
+                    }
+                }
+                & .total-price {
+                    & p {
+                        margin: 0;
+                        margin-right: 50px;
+                        font-size: 1.2rem;
+                        color: $color-whiteblue;
+                    }
+                }
+                border-right: 2px solid $color-blackish;
+            }
+            & .delete {
+                text-align: center;
+                padding-right: 0;
+                transition: all 0.3s ease-in-out;
+                &:hover {
+                    color: $danger;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    & .checkout-btn {
+        background-color: $color-blackish;
+        color: $color-whiteblue;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+            background-color: $color-blackish-state;
+            color: $color-whiteblue-state;
+        }
+    }
+}

@@ -30,6 +30,7 @@ const Header = ({ children }) => {
 
     return (
         <header className="app-header">
+            {/* Bootstrap navbar code */}
             <nav className="navbar navbar-expand-md navigation">
                 <h1 className="navbar-brand">
                     <Link to={Routes.LANDING} className="logo__link">
