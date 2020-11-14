@@ -27,7 +27,6 @@ const GameDetailPage = ({ children }) => {
                     id
                     name
                 }
-                created_on
             }
         }
     `;
