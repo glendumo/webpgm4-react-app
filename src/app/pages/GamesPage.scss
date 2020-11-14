@@ -2,6 +2,26 @@
 
 .page--games {
     .products {
+        &-filter {
+            margin-bottom: 30px;
+            & .form-item {
+                margin-right: 50px;
+                & select {
+                    padding: 5px 10px;
+                    border: 2px solid $color-whiteblue;
+                    border-radius: 10px;
+                }
+            }
+            & .filter-btn {
+                background-color: $color-blackish;
+                color: $color-whiteblue;
+                transition: all 0.3s ease-in-out;
+                &:hover {
+                    background-color: $color-blackish-state;
+                    color: $color-whiteblue-state;
+                }
+            }
+        }
         &-list {
             &-item {
                 color: $color-whiteblue-state;

@@ -105,14 +105,6 @@ const CartPage = ({ children }) => {
                         data-toggle="modal"
                         data-target="#checkoutModal"
                         disabled
-                        onClick={() => {
-                            setCheckoutSuccess(false);
-                            setTimeout(() => {
-                                window.localStorage.removeItem("cart");
-                                setCart([]);
-                                setCheckoutSuccess(!checkoutSuccess);
-                            }, 5000);
-                        }}
                     >
                         Complete your payment
                     </button>
