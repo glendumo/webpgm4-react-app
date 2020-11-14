@@ -88,6 +88,14 @@ const HomePage = ({ children }) => {
                         Take a look at our full collection
                     </Link>
                 </div>
+                <div className="register row justify-content-center">
+                    <Link
+                        to={Routes.REGISTER}
+                        className="btn register-btn col-6"
+                    >
+                        Create an account now for a smoother experience
+                    </Link>
+                </div>
             </div>
         </div>
     );
