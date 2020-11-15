@@ -7,3 +7,5 @@ export const REGISTER = "/register";
 export const LOGIN = "/login";
 export const LOGOUT = "/logout";
 export const ADMIN = "/admin";
+export const EDIT_PRODUCT = "/edit_product/:id";
+export const EDIT_CATEGORY = "/edit_category/:id";

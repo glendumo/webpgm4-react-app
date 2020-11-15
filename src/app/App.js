@@ -13,6 +13,8 @@ import {
     LoginPage,
     LogoutPage,
     AdminPage,
+    EditProductPage,
+    EditCategoryPage,
 } from "./pages";
 
 import * as Routes from "./routes";
@@ -72,6 +74,18 @@ function App() {
                         path={Routes.ADMIN}
                         layout={BaseLayout}
                         component={AdminPage}
+                    />
+                    <RouteWithLayout
+                        exact
+                        path={Routes.EDIT_PRODUCT}
+                        layout={BaseLayout}
+                        component={EditProductPage}
+                    />
+                    <RouteWithLayout
+                        exact
+                        path={Routes.EDIT_CATEGORY}
+                        layout={BaseLayout}
+                        component={EditCategoryPage}
                     />
                 </Switch>
             </Router>

@@ -6,6 +6,8 @@ import RegisterPage from "./RegisterPage";
 import LoginPage from "./LoginPage";
 import LogoutPage from "./LogoutPage";
 import AdminPage from "./AdminPage";
+import EditProductPage from "./EditProductPage";
+import EditCategoryPage from "./EditCategoryPage";
 
 export {
     HomePage,
@@ -16,4 +18,6 @@ export {
     LoginPage,
     LogoutPage,
     AdminPage,
+    EditProductPage,
+    EditCategoryPage,
 };

@@ -1,3 +1,13 @@
+### Login (ADMIN)
+
+email: admin@admin.com
+password: test123
+
+### Login (VISITOR)
+
+email: test@test.com
+password: test123
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

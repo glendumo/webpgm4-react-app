@@ -1,0 +1,49 @@
+@import "../_sass/app.scss";
+
+.page--edit {
+    &-category,
+    &-product {
+        position: relative;
+        & .back-btn {
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            color: $color-blackish;
+            transition: all 0.3s ease-in-out;
+            &:hover {
+                color: $color-blackish-state;
+            }
+        }
+        & h1 {
+            margin-bottom: 30px;
+        }
+        & form {
+            & label {
+                font-size: 1.2rem;
+                color: $color-blackish;
+                margin: 0;
+            }
+            & input,
+            textarea,
+            select {
+                text-align: center;
+                padding: 5px 10px;
+                border: 2px solid $color-whiteblue;
+                border-radius: 20px;
+            }
+            & .edit-btn {
+                margin-top: 30px;
+                background-color: $color-blackish;
+                color: $color-whiteblue;
+                transition: all 0.3s ease-in-out;
+                &:hover {
+                    background-color: $color-blackish-state;
+                    color: $color-whiteblue-state;
+                }
+            }
+            & span {
+                color: $danger;
+            }
+        }
+    }
+}
