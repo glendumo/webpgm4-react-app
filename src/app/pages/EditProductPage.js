@@ -10,6 +10,7 @@ import "./EditPages.scss";
 
 const EditProductPage = ({ children }) => {
     const { id } = useParams();
+    const [categoriesCollection, setCategoriesCollection] = useState([]);
     const [redirect, setRedirect] = useState(false);
     const [editError, setEditError] = useState("");
     const [title, setTitle] = useState("");
@@ -151,7 +152,10 @@ const EditProductPage = ({ children }) => {
             setThirdImage(currentProduct.data.product.images[2] || "");
             setCategories(currentProduct.data.product.categories);
         }
-    }, [currentProduct.data]);
+        if (allCategories.data && allCategories.data.categories.length > 0) {
+            setCategoriesCollection(allCategories.data.categories);
+        }
+    }, [currentProduct.data, allCategories.data]);
 
     if (redirect) {
         return <Redirect to={Routes.ADMIN} />;
@@ -332,20 +336,15 @@ const EditProductPage = ({ children }) => {
                         <div className="row">
                             <label className="col-3">Categories</label>
                             <div className="col-9 row">
-                                {allCategories.data.categories.map(
-                                    (category) => (
-                                        <div
-                                            className="col-3"
-                                            key={category.id}
-                                        >
-                                            <input
-                                                type="checkbox"
-                                                value={category.id}
-                                            />
-                                            <label>{category.name}</label>
-                                        </div>
-                                    )
-                                )}
+                                {categoriesCollection.map((category) => (
+                                    <div className="col-3" key={category.id}>
+                                        <input
+                                            type="checkbox"
+                                            value={category.id}
+                                        />
+                                        <label>{category.name}</label>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                         <button type="submit" className="btn edit-btn">
