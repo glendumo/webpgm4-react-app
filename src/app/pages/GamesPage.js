@@ -56,9 +56,8 @@ const GamesPage = ({ children }) => {
             <div className="container">
                 <form
                     className="products-filter"
-                    onSubmit={async (e) => {
+                    onSubmit={(e) => {
                         e.preventDefault();
-                        console.log(filteredProducts);
                         let filteringProducts = [];
                         if (platform === "all") {
                             filteringProducts = products.data.products;
@@ -72,7 +71,7 @@ const GamesPage = ({ children }) => {
                         if (categoryId === "all") {
                             setFilteredProducts(filteringProducts);
                         } else {
-                            filteringProducts = products.data.products.filter(
+                            filteringProducts = filteringProducts.filter(
                                 (product) => {
                                     let exists = false;
                                     product.categories.forEach((category) => {
@@ -131,34 +130,38 @@ const GamesPage = ({ children }) => {
                     </div>
                 </form>
                 <div className="products-list row">
-                    {filteredProducts.map((product) => (
-                        <div
-                            className="col-6 col-md-4 col-lg-3"
-                            key={product.id}
-                        >
-                            <Link
-                                to={Routes.GAME_DETAIL.replace(
-                                    ":id",
-                                    product.id
-                                )}
+                    {filteredProducts && filteredProducts.length > 0 ? (
+                        filteredProducts.map((product) => (
+                            <div
+                                className="col-6 col-md-4 col-lg-3"
+                                key={product.id}
                             >
-                                <div className="products-list-item">
-                                    <img
-                                        src={product.images[0]}
-                                        alt={product.title}
-                                    />
-                                    <div className="overlay"></div>
-                                    <p className="title">{product.title}</p>
-                                    <span className="platform">
-                                        {product.platform}
-                                    </span>
-                                    <span className="price">
-                                        {product.price}
-                                    </span>
-                                </div>
-                            </Link>
-                        </div>
-                    ))}
+                                <Link
+                                    to={Routes.GAME_DETAIL.replace(
+                                        ":id",
+                                        product.id
+                                    )}
+                                >
+                                    <div className="products-list-item">
+                                        <img
+                                            src={product.images[0]}
+                                            alt={product.title}
+                                        />
+                                        <div className="overlay"></div>
+                                        <p className="title">{product.title}</p>
+                                        <span className="platform">
+                                            {product.platform}
+                                        </span>
+                                        <span className="price">
+                                            {product.price}
+                                        </span>
+                                    </div>
+                                </Link>
+                            </div>
+                        ))
+                    ) : (
+                        <p>There were no products found!</p>
+                    )}
                 </div>
             </div>
         </div>

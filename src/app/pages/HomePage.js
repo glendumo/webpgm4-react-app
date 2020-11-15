@@ -53,34 +53,38 @@ const HomePage = ({ children }) => {
                 </h1>
                 <div className="recent-list row">
                     <h2 className="col-12">Recently added</h2>
-                    {recentProducts.map((product) => (
-                        <div
-                            className="col-6 col-md-4 col-lg-3"
-                            key={product.id}
-                        >
-                            <Link
-                                to={Routes.GAME_DETAIL.replace(
-                                    ":id",
-                                    product.id
-                                )}
+                    {recentProducts && recentProducts.length > 0 ? (
+                        recentProducts.map((product) => (
+                            <div
+                                className="col-6 col-md-4 col-lg-3"
+                                key={product.id}
                             >
-                                <div className="recent-list-item">
-                                    <img
-                                        src={product.images[0]}
-                                        alt={product.title}
-                                    />
-                                    <div className="overlay"></div>
-                                    <p className="title">{product.title}</p>
-                                    <span className="platform">
-                                        {product.platform}
-                                    </span>
-                                    <span className="price">
-                                        {product.price}
-                                    </span>
-                                </div>
-                            </Link>
-                        </div>
-                    ))}
+                                <Link
+                                    to={Routes.GAME_DETAIL.replace(
+                                        ":id",
+                                        product.id
+                                    )}
+                                >
+                                    <div className="recent-list-item">
+                                        <img
+                                            src={product.images[0]}
+                                            alt={product.title}
+                                        />
+                                        <div className="overlay"></div>
+                                        <p className="title">{product.title}</p>
+                                        <span className="platform">
+                                            {product.platform}
+                                        </span>
+                                        <span className="price">
+                                            {product.price}
+                                        </span>
+                                    </div>
+                                </Link>
+                            </div>
+                        ))
+                    ) : (
+                        <p>There were no products found!</p>
+                    )}
                     <Link
                         to={Routes.GAMES}
                         className="btn full-collection-btn col-12"
